@@ -1,0 +1,26 @@
+document.addEventListener("DOMContentLoaded", function () {
+const $=s=>document.querySelector(s), all=s=>Array.from(document.querySelectorAll(s));
+const pages={home:"Accueil",library:"Bibliothèque",studio:"Studio 3D",designer:"OS Designer",creations:"Mes créations",settings:"Paramètres"};
+function notify(message){const t=$("#toast");t.textContent=message;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2200);}
+function go(name){all(".page").forEach(p=>p.classList.toggle("active",p.id==="page-"+name));all(".nav[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===name));$("#crumb").textContent=pages[name]||"Accueil";$("#sidebar").classList.remove("open");}
+all(".nav[data-page], [data-goto]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.page||b.dataset.goto)));
+$("#menu").addEventListener("click",()=>$("#sidebar").classList.toggle("open"));
+$("#new").addEventListener("click",()=>{go("designer");notify("Nouveau concept !");});
+$("#help").addEventListener("click",()=>notify("Explore la bibliothèque, le Studio 3D et OS Designer."));
+let filter="all";
+function applyFilters(){const q=$("#search").value.toLowerCase();let n=0;all(".device").forEach(c=>{const ok=(filter==="all"||c.dataset.type===filter)&&c.dataset.name.toLowerCase().includes(q);c.hidden=!ok;if(ok)n++;});$("#empty").hidden=n!==0;}
+all(".filter").forEach(b=>b.addEventListener("click",()=>{all(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");filter=b.dataset.filter;applyFilters();}));
+$("#search").addEventListener("input",applyFilters);
+let angle=-25;function rotate(){$("#model").style.transform="rotateY("+angle+"deg) rotateX(5deg)";}
+all(".device").forEach(c=>c.addEventListener("click",()=>{$("#selected-name").textContent=c.dataset.name;$("#inspect-name").textContent=c.dataset.name;$("#inspect-detail").textContent=c.dataset.detail;$("#viewer-label").textContent=c.dataset.name.toUpperCase()+" / FRONT";angle=-25;rotate();go("studio");notify(c.dataset.name+" sélectionné");}));
+$("#left").addEventListener("click",()=>{angle-=25;rotate();});$("#right").addEventListener("click",()=>{angle+=25;rotate();});$("#reset").addEventListener("click",()=>{angle=-25;rotate();});
+let down=false,last=0;$("#stage").addEventListener("pointerdown",e=>{down=true;last=e.clientX;});$("#stage").addEventListener("pointermove",e=>{if(!down)return;angle+=(e.clientX-last)*.8;last=e.clientX;rotate();});$("#stage").addEventListener("pointerup",()=>down=false);$("#stage").addEventListener("pointercancel",()=>down=false);$("#choose").addEventListener("click",()=>go("library"));
+const screen=$("#os-screen");
+all(".wall").forEach(b=>b.addEventListener("click",()=>{all(".wall").forEach(x=>x.classList.remove("active"));b.classList.add("active");screen.className="os-screen"+(b.dataset.wall==="aurora"?"":" "+b.dataset.wall);}));
+all("[data-style]").forEach(b=>b.addEventListener("click",()=>{all("[data-style]").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");screen.classList.toggle("square",b.dataset.style==="square");}));
+$("#icon-size").addEventListener("input",e=>all(".os-icons i,.dock i").forEach(i=>{i.style.width=e.target.value+"px";i.style.height=e.target.value+"px";}));
+$("#os-name").addEventListener("input",e=>$("#os-caption").textContent=(e.target.value||"MON OS").toUpperCase()+" · HOME SCREEN");
+const saved=[];
+function renderSaved(){const list=$("#creation-list");list.replaceChildren();if(!saved.length){list.className="creation-empty";const symbol=document.createElement("b");symbol.textContent="✧";const h=document.createElement("h2");h.textContent="La page blanche n’attend que toi.";const p=document.createElement("p");p.textContent="Enregistre ton premier concept depuis OS Designer pour le retrouver ici.";const btn=document.createElement("button");btn.className="primary";btn.textContent="Créer mon premier concept ↗";btn.addEventListener("click",()=>go("designer"));list.append(symbol,h,p,btn);return;}list.className="saved-list";saved.forEach((item,index)=>{const row=document.createElement("article");row.className="saved";const thumb=document.createElement("div");thumb.className="saved-thumb";thumb.style.background=item.wall;const info=document.createElement("div");const title=document.createElement("h3");title.textContent=item.name;const date=document.createElement("p");date.textContent="Enregistré le "+item.date;info.append(title,date);const remove=document.createElement("button");remove.textContent="×";remove.addEventListener("click",()=>{saved.splice(index,1);renderSaved();});row.append(thumb,info,remove);list.append(row);});}
+$("#save").addEventListener("click",()=>{const name=$("#os-name").value.trim()||"Mon OS";saved.unshift({name,wall:getComputedStyle($(".wall.active")).backgroundImage,date:new Date().toLocaleString("fr-FR",{dateStyle:"short",timeStyle:"short"})});renderSaved();$("#save-hint").textContent="Concept enregistré dans cette session.";notify("« "+name+" » a été enregistré !");});
+});
