@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b12"><meta name="description" content="Concept OS — studio de création d'appareils et de systèmes d'exploitation.">
+<title>Concept OS — Creation Studio</title><link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar" id="sidebar">
+<a class="brand" href="#"><span class="brand-icon">C</span><span><b>concept</b><small>CREATION STUDIO</small></span></a>
+<div class="nav-label">WORKSPACE</div>
+<nav>
+<button class="nav active" data-page="home">⌂ <span>Accueil</span></button>
+<button class="nav" data-page="library">▦ <span>Bibliothèque</span><i>08</i></button>
+<button class="nav" data-page="studio">◇ <span>Studio 3D</span></button>
+<button class="nav" data-page="designer">▤ <span>OS Designer</span></button>
+<button class="nav" data-page="creations">✳ <span>Mes créations</span></button>
+</nav>
+<div class="side-bottom"><div class="storage"><small>ESPACE PROJET <b>LOCAL</b></small><div><i></i></div><p>Tout reste dans ton navigateur.</p></div><button class="nav" data-page="settings">⚙ <span>Paramètres</span></button><div class="profile"><span>C</span><div><b>Creator</b><small>Web Preview · Beta 0.1.0</small></div><i></i></div></div>
+</aside>
+<main>
+<header class="topbar"><button id="menu" class="menu">☰</button><div class="crumb">Workspace <b>/</b> <strong id="crumb">Accueil</strong></div><div class="actions"><span class="preview">● WEB PREVIEW</span><button class="help" id="help">?</button><button class="new" id="new">＋ <span>Nouveau projet</span></button></div></header>
+<section class="page active" id="page-home">
+<div class="hero"><div><small class="eyebrow">✦ &nbsp; TON ATELIER NUMÉRIQUE</small><h1>Imagine. Conçois.<br><em>Donne vie aux idées.</em></h1><p>Un espace pour imaginer les appareils de demain et créer leur propre système d'exploitation.</p></div><div class="orb"><div class="orb-ring"></div><div class="orb-core">C<span>OS</span></div><b>✦</b></div></div>
+<div class="stats"><article><small>APPAREILS DISPONIBLES</small><strong>08</strong><p>Dans la bibliothèque de départ</p></article><article><small>ESPACE DE CRÉATION</small><strong>∞</strong><p>Ton imagination comme limite</p></article><article><small>VERSION ACTUELLE</small><strong>0.1.0</strong><p><i class="green-dot"></i> Première preview Web</p></article></div>
+<div class="section-head"><div><small class="eyebrow">COMMENCER</small><h2>Ton prochain projet</h2></div><span>Choisis ton point de départ</span></div>
+<div class="start-grid">
+<button class="start-card featured" data-goto="library"><small>01 / EXPLORER</small><div class="visual"><div class="mock-phone"><i></i></div></div><h3>Bibliothèque d'appareils <b>↗</b></h3><p>Explore les téléphones, ordinateurs, consoles et objets connectés.</p></button>
+<button class="start-card" data-goto="studio"><small>02 / MODÉLISER</small><div class="visual"><div class="mock-laptop"></div></div><h3>Studio 3D <b>↗</b></h3><p>Observe ton appareil, manipule-le et prépare sa personnalisation.</p></button>
+<button class="start-card" data-goto="designer"><small>03 / PERSONNALISER</small><div class="visual"><div class="mock-os"><i></i><i></i><i></i></div></div><h3>OS Designer <b>↗</b></h3><p>Imagine l'écran d'accueil et l'identité de ton propre OS.</p></button>
+</div>
+<div class="banner"><span>✧</span><div><b>Chaque grand appareil commence par une idée.</b><p>Cette première version pose les bases de ton futur studio de création.</p></div><small>BETA 0.1.0</small></div>
+</section>
+<section class="page" id="page-library">
+<div class="intro"><small class="eyebrow">COLLECTION DE RÉFÉRENCE</small><h1>La bibliothèque<span>.</span></h1><p>Choisis un appareil comme point de départ pour ton concept.</p></div>
+<div class="filters"><div><button class="filter active" data-filter="all">Tout <b>08</b></button><button class="filter" data-filter="phone">Smartphones</button><button class="filter" data-filter="computer">Ordinateurs</button><button class="filter" data-filter="console">Consoles</button><button class="filter" data-filter="wearable">Wearables</button></div><input id="search" placeholder="⌕  Rechercher un appareil…"></div>
+<div class="device-grid" id="devices">
+<button class="device" data-name="Pixel 4a" data-type="phone" data-detail="Smartphone · 2020"><div class="device-art purple"><div class="phone-shape"><i></i></div></div><small>SMARTPHONE</small><h3>Pixel 4a <b>↗</b></h3><p>Google · 2020</p></button>
+<button class="device" data-name="MacBook Pro M2" data-type="computer" data-detail="Ordinateur portable · 2022"><div class="device-art blue"><div class="laptop-shape"><i>◉</i></div></div><small>ORDINATEUR</small><h3>MacBook Pro M2 <b>↗</b></h3><p>Apple · 2022</p></button>
+<button class="device" data-name="Nintendo Switch 2" data-type="console" data-detail="Console portable · 2025"><div class="device-art pink"><div class="handheld"><i></i><span></span><i></i></div></div><small>CONSOLE</small><h3>Switch 2 <b>↗</b></h3><p>Nintendo · 2025</p></button>
+<button class="device" data-name="PlayStation 3" data-type="console" data-detail="Console de salon · 2006"><div class="device-art steel"><div class="tower">PS3</div></div><small>CONSOLE</small><h3>PlayStation 3 <b>↗</b></h3><p>Sony · 2006</p></button>
+<button class="device" data-name="iPhone 15 Pro" data-type="phone" data-detail="Smartphone · 2023"><div class="device-art rose"><div class="phone-shape iphone"><i></i></div></div><small>SMARTPHONE</small><h3>iPhone 15 Pro <b>↗</b></h3><p>Apple · 2023</p></button>
+<button class="device" data-name="ROG Ally" data-type="console" data-detail="PC portable gaming · 2023"><div class="device-art red"><div class="handheld rog"><i></i><span></span><i></i></div></div><small>HANDHELD PC</small><h3>ROG Ally <b>↗</b></h3><p>ASUS · 2023</p></button>
+<button class="device" data-name="Apple Watch Series 9" data-type="wearable" data-detail="Montre connectée · 2023"><div class="device-art steel"><div class="watch"><i></i></div></div><small>WEARABLE</small><h3>Watch Series 9 <b>↗</b></h3><p>Apple · 2023</p></button>
+<button class="device" data-name="iPad Pro" data-type="computer" data-detail="Tablette · 2024"><div class="device-art blue"><div class="tablet"></div></div><small>TABLETTE</small><h3>iPad Pro <b>↗</b></h3><p>Apple · 2024</p></button>
+</div><p id="empty" class="empty" hidden>Aucun appareil ne correspond à ta recherche.</p>
+</section>
+<section class="page" id="page-studio">
+<div class="intro"><small class="eyebrow">ESPACE DE MODÉLISATION</small><h1>Studio 3D<span>.</span></h1><p>Un premier aperçu interactif. Fais glisser pour faire pivoter l'appareil.</p></div>
+<div class="studio-layout"><div class="viewer"><div class="viewer-head"><span>● APERÇU INTERACTIF</span><small id="viewer-label">PIXEL 4A / FRONT</small></div><div class="stage" id="stage"><div class="stage-grid"></div><div class="model" id="model"><div class="model-back"><div class="camera"><i></i><i></i></div><b>G</b></div><div class="model-front"><div class="screen-wall"></div><i class="notch"></i></div></div><small class="drag-hint">↔ FAIS GLISSER POUR PIVOTER</small><div class="view-tools"><button id="left">↶</button><button id="right">↷</button><button id="reset">⟲</button></div></div><div class="viewer-foot"><div><small>APPAREIL SÉLECTIONNÉ</small><b id="selected-name">Pixel 4a</b></div><button class="primary" id="choose">Choisir un appareil ↗</button></div></div>
+<aside class="inspector"><div class="inspector-head">INSPECTEUR <span>PREVIEW</span></div><div><small>APPAREIL</small><h3 id="inspect-name">Pixel 4a</h3><p id="inspect-detail">Smartphone · 2020</p></div><div><small>OUTILS DE VUE</small><div class="tool-row"><button class="selected">◈<br>Rotation</button><button>⌕<br>Zoom</button><button>▧<br>Face</button></div></div><div><small>ÉTAT DU MODÈLE</small><p class="property">Géométrie <b>Démo visuelle</b></p><p class="property">Matériaux <b>Simulation CSS</b></p><p class="property">Fichier 3D <b class="pending">À intégrer</b></p></div><p class="note">Les modèles 3D détaillés (GLB) seront intégrés dans les prochaines versions.</p></aside></div>
+</section>
+<section class="page" id="page-designer">
+<div class="intro"><small class="eyebrow">SYSTÈME D'EXPLOITATION</small><h1>OS Designer<span>.</span></h1><p>Compose une première identité visuelle pour ton système d'exploitation.</p></div>
+<div class="designer-layout"><div class="phone-preview"><div class="preview-head">APERÇU EN DIRECT <span>ÉCRAN D'ACCUEIL</span></div><div class="os-phone"><div class="os-screen" id="os-screen"><div class="status"><b>9:41</b><b>● ◔ ▰</b></div><div class="clock">09:41<small>Vendredi 30 octobre</small></div><div class="weather"><small>VENDREDI</small><strong>24°</strong><small>Ensoleillé</small></div><div class="os-icons"><div><i>◉</i><small>Photos</small></div><div><i>✉</i><small>Mail</small></div><div><i>♫</i><small>Musique</small></div><div><i>⚙</i><small>Réglages</small></div></div><div class="dock"><i>◉</i><i>▣</i><i>◎</i><i>◌</i></div></div></div><small class="device-caption" id="os-caption">CONCEPT OS · HOME SCREEN</small></div>
+<div class="controls"><div class="inspector-head">PERSONNALISATION <span>EN DIRECT</span></div><label>Nom de ton OS<input id="os-name" value="Concept OS" maxlength="22"></label><div class="control-group"><small>FOND D'ÉCRAN</small><div class="wall-options"><button class="wall active" data-wall="aurora" aria-label="Aurore"></button><button class="wall sunset" data-wall="sunset" aria-label="Coucher de soleil"></button><button class="wall ocean" data-wall="ocean" aria-label="Océan"></button><button class="wall mono" data-wall="mono" aria-label="Monochrome"></button></div></div><div class="control-group"><small>STYLE DES ICÔNES</small><div class="segmented"><button class="selected" data-style="round">Arrondies</button><button data-style="square">Carrées</button></div></div><div class="control-group"><small>TAILLE DES ICÔNES</small><input id="icon-size" type="range" min="30" max="48" value="36"><div class="range-label"><span>Compact</span><span>Grand</span></div></div><button class="primary save" id="save">Enregistrer le concept ↗</button><p class="save-hint" id="save-hint">Tes réglages sont conservés dans cette session.</p></div></div>
+</section>
+<section class="page" id="page-creations"><div class="intro"><small class="eyebrow">TON UNIVERS</small><h1>Mes créations<span>.</span></h1><p>Retrouve les concepts que tu as enregistrés dans cette session.</p></div><div id="creation-list" class="creation-empty"><b>✧</b><h2>La page blanche n'attend que toi.</h2><p>Enregistre ton premier concept depuis OS Designer pour le retrouver ici.</p><button class="primary" data-goto="designer">Créer mon premier concept ↗</button></div></section>
+<section class="page" id="page-settings"><div class="intro"><small class="eyebrow">PRÉFÉRENCES</small><h1>Paramètres<span>.</span></h1><p>Informations sur cette version de démonstration.</p></div><div class="settings"><small>APPLICATION</small><h3>Concept OS — Web Preview</h3><p>Une première interface de travail, pensée pour mobile et ordinateur.</p><p>Version <b>Beta 0.1.0</b></p><p>Stockage <b>Session du navigateur</b></p><p>Modèles 3D haute fidélité <b class="pending">En préparation</b></p><p>Export APK <b class="pending">Après validation</b></p></div></section>
+<footer>CONCEPT OS · BETA 0.1.0 <span>MADE FOR THE NEXT IDEA ✦</span></footer>
+</main></div><div class="toast" id="toast"></div><script src="./app.js"></script>
+</body></html>
